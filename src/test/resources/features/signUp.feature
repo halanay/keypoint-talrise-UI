@@ -83,7 +83,8 @@ Feature: SignUp
   #  Please do not use spaces, symbols, or special characters.
 
     When the user enters invalid "<linkedin>"linkedin input
-    Then error message should appear
+    And the user clicks on Create My Account button
+    Then linkedin error message should be displayed
 
     Examples:
       | linkedin                                                                                                                          |

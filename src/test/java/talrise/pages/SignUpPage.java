@@ -66,6 +66,11 @@ public class SignUpPage extends CommonPageElements {
     @FindBy(xpath = "//*[contains(text(),'Please include an '@'')]")
     public WebElement warningIncludeAtSign;
 
+    @FindBy(xpath = "//*[contains(text(),'LinkedIn URL must be a valid LinkedIn URL')]")
+    public WebElement linkedinErrorMessage;
+
+
+
 
 
 
@@ -144,6 +149,16 @@ public class SignUpPage extends CommonPageElements {
     public void emailErrorMessageDisplayed() {
 
         Assert.assertTrue("email error message displayed",warningValidEmail.isDisplayed()||warningIncludeAtSign.isDisplayed());
+    }
+
+    public void linkedinTestForm(String linkedin){
+        firstNameBox.sendKeys(faker.name().firstName());
+        lastNameBox.sendKeys(faker.name().lastName());
+        linkedInBox.sendKeys(linkedin);
+        emailBox.sendKeys(faker.internet().emailAddress());
+        passswordBox.sendKeys("Test123456!");
+        confirmPasswordBox.sendKeys("Test123456!");
+        GDPRcheckbox.click();
     }
 
 

@@ -104,4 +104,15 @@ public class SignUpStepDefs extends CommonSteps {
 
         signUpPage.emailErrorMessageDisplayed();
     }
+
+    @When("the user enters invalid {string}linkedin input")
+    public void theUserEntersInvalidLinkedinInput(String linkedin) {
+        signUpPage.linkedinTestForm(linkedin);
+
+    }
+
+    @Then("linkedin error message should be displayed")
+    public void linkedinErrorMessageShouldBeDisplayed() {
+        Assert.assertTrue(signUpPage.linkedinErrorMessage.isDisplayed());
+    }
 }
