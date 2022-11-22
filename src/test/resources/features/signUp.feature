@@ -36,6 +36,11 @@ Feature: SignUp
 
   Scenario Outline: User should not be allowed to sign up with invalid first name and last name inputs
 
+      #  can be several words with spaces, and has a minimum of three characters, but a maximum at top 30 characters. An empty string shouldn't be validated
+      #  (e.g. Jason, jason, jason smith, jason smith, JASON, Jason smith, jason Smith, and jason SMITH).
+      #  For the last name, it should be a single word, only letters, with at least three characters, but at most 30 characters.
+      #  Empty strings shouldn't be validated (e.g. lazslo, Lazslo, and LAZSLO).
+
     When the user enters invalid "<firstName>" name inputs
     Then warning message is displayed
 
@@ -52,3 +57,72 @@ Feature: SignUp
       | !!??!!??                                            |
       #alphanumeric characters
       | abcd1234                                            |
+
+  Scenario Outline: User should not be allowed to sign up with invalid email inputs
+
+    When the user enters invalid "<email>" mail inputs
+    And the user clicks on Create My Account button
+    Then email error message should appear
+
+    Examples:
+      | email               |
+      #email without @ sign
+      | test.testermail.com |
+      #one letter email
+      | a                   |
+      #special characters only
+      | !!                  |
+      #without Top Level Domain(.com)
+      | test@testermail     |
+
+
+
+  Scenario Outline: User should not be allowed to sign up with invalid linkedin inputs
+
+#  Note: Linkedin custom URL must contain 3-100 letters or numbers.
+  #  Please do not use spaces, symbols, or special characters.
+
+    When the user enters invalid "<linkedin>"linkedin input
+    Then error message should appear
+
+    Examples:
+      | linkedin                                                                                                                          |
+      #BVA only 2 letters
+      | https://www.linkedin.com/in/te                                                                                                    |
+      #BVA upper limit 101 letters or numbers
+      | https://www.linkedin.com/in/1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1 |
+      #without last part
+      | https://www.linkedin.com/in/                                                                                                      |
+      #linkedin with spaces
+      | https://www.linkedin.com/in/test 12 test                                                                                          |
+      #linkedin with special characters
+      | https://www.linkedin.com/in/@test12345!!??                                                                                        |
+
+  Scenario Outline: User should not be allowed to sign up with invalid password inputs
+
+    When the user enters invalid "<password>" password inputs
+    Then password error message should appear
+
+    Examples:
+      | password   |
+
+      #only lowercase test
+      | abcdefgh   |
+       #only uppercase test
+      | ABCDEFGH   |
+      #alphanumeric -not capitalized
+      | abcd1234   |
+      #alphanumeric -CAPITAL only
+      | ABCD1234   |
+      #only numbers test
+      | 12345678   |
+      #BVA 7 characters test
+      | Abcd123   |
+      #BVA 9 characters test
+      | Abcde1234 |
+
+
+
+
+
+
