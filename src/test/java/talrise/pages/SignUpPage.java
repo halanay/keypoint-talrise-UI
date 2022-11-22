@@ -69,12 +69,8 @@ public class SignUpPage extends CommonPageElements {
     @FindBy(xpath = "//*[contains(text(),'LinkedIn URL must be a valid LinkedIn URL')]")
     public WebElement linkedinErrorMessage;
 
-
-
-
-
-
-
+    @FindBy(xpath = "//*[contains(text(),'Password must')]")
+    public WebElement passwordErrorMessage;
 
     public void formFill(){
         firstNameBox.sendKeys(faker.name().firstName());
@@ -160,6 +156,18 @@ public class SignUpPage extends CommonPageElements {
         confirmPasswordBox.sendKeys("Test123456!");
         GDPRcheckbox.click();
     }
+
+    public void passwordTestForm(String password){
+        firstNameBox.sendKeys(faker.name().firstName());
+        lastNameBox.sendKeys(faker.name().lastName());
+        linkedInBox.sendKeys(linkedIn.concat(faker.name().firstName()));
+        emailBox.sendKeys(faker.internet().emailAddress());
+        passswordBox.sendKeys(password);
+        confirmPasswordBox.sendKeys(password);
+        GDPRcheckbox.click();
+    }
+
+
 
 
 }

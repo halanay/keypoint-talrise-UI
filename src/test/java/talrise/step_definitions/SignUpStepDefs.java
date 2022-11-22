@@ -115,4 +115,14 @@ public class SignUpStepDefs extends CommonSteps {
     public void linkedinErrorMessageShouldBeDisplayed() {
         Assert.assertTrue(signUpPage.linkedinErrorMessage.isDisplayed());
     }
+
+    @When("the user enters invalid {string} password inputs")
+    public void theUserEntersInvalidPasswordInputs(String password) {
+        signUpPage.passwordTestForm(password);
+    }
+    @Then("password error message should be displayed")
+    public void passwordErrorMessageShouldBeDisplayed() {
+
+        Assert.assertTrue(signUpPage.passwordErrorMessage.isDisplayed());
+    }
 }

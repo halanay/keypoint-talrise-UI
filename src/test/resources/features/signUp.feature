@@ -102,21 +102,22 @@ Feature: SignUp
   Scenario Outline: User should not be allowed to sign up with invalid password inputs
 
     When the user enters invalid "<password>" password inputs
-    Then password error message should appear
+    And the user clicks on Create My Account button
+    Then password error message should be displayed
 
     Examples:
-      | password   |
+      | password  |
 
       #only lowercase test
-      | abcdefgh   |
-       #only uppercase test
-      | ABCDEFGH   |
+      | abcdefgh  |
+      #only uppercase test
+      | ABCDEFGH  |
       #alphanumeric -not capitalized
-      | abcd1234   |
+      | abcd1234  |
       #alphanumeric -CAPITAL only
-      | ABCD1234   |
+      | ABCD1234  |
       #only numbers test
-      | 12345678   |
+      | 12345678  |
       #BVA 7 characters test
       | Abcd123   |
       #BVA 9 characters test
