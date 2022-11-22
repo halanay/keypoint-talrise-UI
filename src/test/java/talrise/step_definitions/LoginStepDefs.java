@@ -28,4 +28,13 @@ public class LoginStepDefs extends CommonSteps {
         Assert.assertTrue(loginPage.loginMessage.isDisplayed());
     }
 
+    @Given("the user is logged in with valid credentials")
+    public void theUserIsLoggedInWithValidCredentials() {
+        loginPage.emailTextbox.sendKeys(ConfigurationReader.get("email"));
+        loginPage.passwordTextbox.sendKeys(ConfigurationReader.get("password"));
+
+            loginPage.loginButton.click();
+
+
+    }
 }
