@@ -6,9 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import talrise.utilities.CommonSteps;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class SignUpPage extends CommonPageElements {
 
 
@@ -58,10 +55,16 @@ public class SignUpPage extends CommonPageElements {
     public WebElement RegisteredPopUp;
 
     @FindBy(xpath = "//*[contains(text(),'2 characters minimum')]")
-    public WebElement twoCharWarning_firstName;
+    public WebElement warning_firstName_twoChar;
 
     @FindBy(xpath = "//*[contains(text(),'Only letters')]")
-    public WebElement onlyLettersWarning_firstName;
+    public WebElement Warning_firstName_onlyLetters;
+
+    @FindBy(xpath = "//*[contains(text(),'Email must be a valid email (example@mail.com)')]")
+    public WebElement warningValidEmail;
+
+    @FindBy(xpath = "//*[contains(text(),'Please include an '@'')]")
+    public WebElement warningIncludeAtSign;
 
 
 
@@ -130,13 +133,19 @@ public class SignUpPage extends CommonPageElements {
         GDPRcheckbox.click();
     }
 
-    public void assertionTest(){
+    public void assertionTestName(){
 
         CommonSteps.waitFor(2);
 
-        Assert.assertTrue(twoCharWarning_firstName.isDisplayed()||onlyLettersWarning_firstName.isDisplayed());
+        Assert.assertTrue(warning_firstName_twoChar.isDisplayed()|| Warning_firstName_onlyLetters.isDisplayed());
 
     }
+
+    public void emailErrorMessageDisplayed() {
+
+        Assert.assertTrue("email error message displayed",warningValidEmail.isDisplayed()||warningIncludeAtSign.isDisplayed());
+    }
+
 
 }
 
