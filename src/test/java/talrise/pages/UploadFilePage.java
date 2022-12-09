@@ -14,14 +14,23 @@ public class UploadFilePage extends CommonPageElements{
     @FindBy(xpath = "//*[.=\"Upload CV\"]")
     public WebElement uploadCvButton;
 
-    @FindBy(xpath = "(//button[@class=\"sc-gikAfH hQZbzO sc-lknQiW jHSpQC\"])[1]")
+    @FindBy(xpath = "(//button[@class=\"sc-gikAfH hQZbzO sc-cLNonn bwkOlG\"])[1]")
     public WebElement uploadCvBrowseButton;
 
-    @FindBy(xpath = "(//input[@type=\"file\"])[1]")
+    @FindBy(xpath = "(//input[@type=\"file\"])[1]/..")
     public WebElement uploadCvBox;
 
     @FindBy(css = "[class=\"file-name\"]")
     public WebElement fileNameUploaded;
+
+    @FindBy(xpath = "(//input[@type=\"file\"])[2]")
+    public WebElement uploadCoverBox;
+
+    @FindBy(css = "[class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk\"]")
+    public WebElement deleteButton;
+
+    @FindBy(xpath = "(//button[@class=\"sc-gikAfH hQZbzO sc-cLNonn bwkOlG\"])[2]")
+    public WebElement uploadCoverBrowseButton;
 
 
 
