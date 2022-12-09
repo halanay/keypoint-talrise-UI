@@ -125,4 +125,13 @@ public class SignUpStepDefs extends CommonSteps {
 
         Assert.assertTrue(signUpPage.passwordErrorMessage.isDisplayed());
     }
+
+    @And("user clicks one of the {string} at roles page")
+    public void userClicksOneOfTheAtRolesPage(String role) {
+
+        if (role=="candidate"){
+
+
+        };
+    }
 }

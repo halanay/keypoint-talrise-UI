@@ -124,6 +124,21 @@ Feature: SignUp
       | Abcde1234 |
 
 
+  Scenario Outline: User should be able to register as one of the roles
+
+    When User enters valid inputs
+    And user clicks one of the "<role>" at roles page
+    Then user should see the success message
+
+
+    Examples:
+
+      | role      |
+      | candidate |
+      | client    |
+      | partner   |
+
+
 
 
 
