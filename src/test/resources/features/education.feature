@@ -1,6 +1,4 @@
 Feature: education
 
-  #deneme eren eren
-#deneme erenn
-  #asdfa
-#DSfdafdad adf
+# Sign Up ile education kismi bos bir user create edilip sonra ona candidate rolu veriliyor burda
+  Background: an user should be sign up and choose candidate role
