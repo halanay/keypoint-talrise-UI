@@ -18,6 +18,9 @@ Feature: SignUp
 
 
 
+
+
+
   Scenario Outline: User should not be allowed to sign up with blank required inputs
     When the user leaves blank user information "<firstName>" "<lastName>""<linkedin>""<email>""<password>""<confirmPassword>""<gdpr>"
     Then error message should appear
@@ -128,7 +131,7 @@ Feature: SignUp
 
     When User enters valid inputs
     And user clicks one of the "<role>" at roles page
-    Then user should see the success message
+   # Then user should see the success message
 
 
     Examples:
@@ -137,6 +140,13 @@ Feature: SignUp
       | candidate |
       | client    |
       | partner   |
+
+
+Scenario: User registers as role candidate
+
+  When User enters valid inputs and registers as "candidate"
+  Then user should see sign up success message
+  And user should land to dashboard page
 
 
 
