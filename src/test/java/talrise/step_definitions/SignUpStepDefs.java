@@ -125,4 +125,58 @@ public class SignUpStepDefs extends CommonSteps {
 
         Assert.assertTrue(signUpPage.passwordErrorMessage.isDisplayed());
     }
+
+    @And("user clicks one of the {string} at roles page")
+    public void userClicksOneOfTheAtRolesPage(String role) {
+
+        CommonSteps.waitForPageToLoad(5);
+
+        if (role=="candidate") {
+            signUpPage.candidateButton.click();
+            System.out.println("candidate registered");
+        }else if (role=="client"){
+            signUpPage.clientButton.click();
+           System.out.println("client registered");
+        }else if(role=="partner") {
+            signUpPage.partnerButton.click();
+        }
+    };
+
+    @When("User enters valid inputs and registers as {string}")
+    public void userEntersValidInputsAndRegistersAs(String role) {
+
+        userEntersValidInputs();
+
+
+
+        if (role.equalsIgnoreCase  ("candidate")){
+            signUpPage.candidateButton.click();
+            System.out.println("candidate registered");
+        }else if(role.equalsIgnoreCase  ("client")){
+            signUpPage.clientButton.click();
+            System.out.println("client registered");
+        }else if(role.equalsIgnoreCase  ("partner")){
+            signUpPage.partnerButton.click();
+        }
+
+
+
+        signUpPage.nextSignUpRolesButton.click();
+
+    }
+
+    @Then("user should see sign up success message")
+    public void userShouldSeeSignUpSuccessMessage() {
+        Assert.assertTrue(signUpPage.signUpsuccess.isDisplayed());
+
+    }
+
+    @And("user should land to dashboard page")
+    public void userShouldLandToDashboardPage() {
+
+        signUpPage.completeNow.click();
+
+
+    }
 }
+
