@@ -10,7 +10,7 @@ Feature: uploadFile
   Scenario:User can load cv file using CvBox
     And user uploads "cv" by using uploadCvBox(doc,pdf,docx)
     Then user see uploaded file name contains "cv"
-  @wip
+
   Scenario:User can load cv file using Browse button
     And user uploads "cv" by using browseCvBox(doc,pdf,docx)
     Then user see uploaded file name contains "cv"
