@@ -657,5 +657,10 @@ public class CommonSteps extends PageInitializer {
         String message =inputBox.getAttribute("validationMessage");
         return message;
     }
+    public static void scrollToBottom() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,document.body.scrollHeight)");
+
+
+    }
 
 }

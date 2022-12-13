@@ -72,6 +72,11 @@ public class SignUpPage extends CommonPageElements {
     @FindBy(xpath = "//*[contains(text(),'Password must')]")
     public WebElement passwordErrorMessage;
 
+    @FindBy(xpath = "//*[contains(text(),'Please')]")
+    public WebElement generalWarningMessage;
+
+
+
     public void formFill(){
         firstNameBox.sendKeys(faker.name().firstName());
         lastNameBox.sendKeys(faker.name().lastName());
