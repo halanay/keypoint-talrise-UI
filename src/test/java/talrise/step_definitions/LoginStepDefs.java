@@ -37,4 +37,11 @@ public class LoginStepDefs extends CommonSteps {
 
 
     }
+
+
+    @Given("User should be logged in as candidate")
+    public void userShouldBeLoggedInAsCandidate() {
+
+        loginPage.candidateLogin();
+    }
 }
