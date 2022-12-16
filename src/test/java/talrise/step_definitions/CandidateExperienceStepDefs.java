@@ -49,7 +49,7 @@ public class CandidateExperienceStepDefs extends CommonSteps {
              break;
          }
      }
-
+    //
     }
 
     @Given("US1 Candidate user clicks on I am currently working box")
