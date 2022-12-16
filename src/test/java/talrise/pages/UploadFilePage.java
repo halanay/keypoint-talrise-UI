@@ -32,6 +32,17 @@ public class UploadFilePage extends CommonPageElements{
     @FindBy(xpath = "(//button[@class=\"sc-gikAfH hQZbzO sc-cLNonn bwkOlG\"])[2]")
     public WebElement uploadCoverBrowseButton;
 
+    @FindBy(xpath = "//h2[@class=\"sc-iBYQkv bpgPjg sc-kiPvrU aiSzf header\"]/following::button[text()='SAVE'][1]")
+    public static WebElement uploadFileSaveButton;
+
+    @FindBy(xpath = "//h2[@class=\"sc-iBYQkv bpgPjg sc-kiPvrU aiSzf header\"]/following::button[text()='Cancel'][1]")
+    public static WebElement uploadFileCancelButton;
+
+    @FindBy(xpath = "(//div[.='Your Cv has been uploaded successfully.'])[6]")
+    public static WebElement cvSavedPopup;
+
+    @FindBy(xpath = "(//div[.='Your Cover Letter has been uploaded successfully.'])[6]")
+    public static WebElement coverSavedPopup;
 
 
 

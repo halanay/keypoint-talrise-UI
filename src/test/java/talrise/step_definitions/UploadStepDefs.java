@@ -20,6 +20,8 @@ import java.awt.event.KeyEvent;
 
 public class UploadStepDefs extends CommonSteps {
 
+
+
 //    public static void main(String[] args) {
 //        String systemProperty = System.getProperty("user.name");
 //        String systemUsername = System.getenv("USERNAME");
@@ -30,10 +32,12 @@ public class UploadStepDefs extends CommonSteps {
 //        String keyP = System.getenv("KeyP");
 //        System.out.println("keyP = " + keyP);
 //    }
-    String cv="C:\\Users\\Dell\\Desktop\\admin candidate skills.docx";
-    String cover="C:\\Users\\Dell\\Desktop\\ders programı.pdf";
-    String anotherCv="C:\\Users\\Dell\\Desktop\\ders programı.pdf";
-    String anotherCover="C:\\Users\\Dell\\Desktop\\idler.docx";
+
+    String systemUsername = System.getenv("USERNAME");
+    String cv="C:\\Users\\"+systemUsername+"\\Desktop\\admin candidate skills.docx";
+    String cover="C:\\Users\\"+systemUsername+"\\Desktop\\ders programı.pdf";
+    String anotherCv="C:\\Users\\"+systemUsername+"\\Desktop\\ders programı.pdf";
+    String anotherCover="C:\\Users\\"+systemUsername+"\\Desktop\\idler.docx";
     StringSelection str;
     JavascriptExecutor js = (JavascriptExecutor)driver; // Scroll operation using Js Executor
     Robot rb = new Robot(); // creating object of Robot class
@@ -131,7 +135,7 @@ public class UploadStepDefs extends CommonSteps {
     @And("user uploads {string} by using uploadCoverBox\\(doc,pdf,docx)")
     public void userUploadsByUsingUploadCoverBoxDocPdfDocx(String fileName) {
         String fileLocation = fileNameCreator(fileName);
-        uploadFilePage.uploadCvBox.sendKeys(fileLocation);
+        uploadFilePage.uploadCoverBox.sendKeys(fileLocation);
     }
 
     @And("user uploads {string} by using browseCoverBox\\(doc,pdf,docx)")
@@ -202,5 +206,46 @@ public class UploadStepDefs extends CommonSteps {
     }
 
 
+    @When("user clicks save button in uploadFile Page")
+    public void userClicksSaveButtonInUploadFilePage() {
+        uploadFilePage.uploadFileSaveButton.click();
+    }
 
+
+
+    @Then("user should see {string} for {string}")
+    public void userShouldSeeFor(String expectedPopupText, String file) {
+        System.out.println("savedPopupText = " + expectedPopupText);
+        System.out.println("file = " + file);
+        String actualPopupText;
+        if (file.equals("cv")) {
+            waitForVisibility(UploadFilePage.cvSavedPopup,10);
+            actualPopupText = UploadFilePage.cvSavedPopup.getText();
+
+        }
+        else{
+            waitForVisibility(UploadFilePage.coverSavedPopup,10);
+            actualPopupText = UploadFilePage.coverSavedPopup.getText();
+        }
+        System.out.println("actualPopupText = " + actualPopupText);
+        Assert.assertEquals(expectedPopupText, actualPopupText);
+
+
+    }
+
+    @When("user clicks cancel button in uploadFile Page")
+    public void userClicksCancelButtonInUploadFilePage() {
+        uploadFilePage.uploadFileCancelButton.click();
+    }
+
+
+    @Then("user see {string} empty")
+    public void userSeeEmpty(String fileBox) {
+        if(fileBox.equals("cvBox")){
+           Assert.assertTrue(uploadFilePage.uploadCvBox.getText().isEmpty());
+        }else {
+           Assert.assertTrue(uploadFilePage.uploadCoverBox.getText().isEmpty());
+        }
+
+    }
 }
