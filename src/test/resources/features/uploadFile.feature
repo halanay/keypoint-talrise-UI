@@ -6,7 +6,7 @@ Feature: uploadFile
     And close complete now popup
     And click on profile button
     And select upload file
-@wip
+
   Scenario:User can load cv file using CvBox
     And user uploads "cv" by using uploadCvBox(doc,pdf,docx)
     Then user see uploaded file name contains "cv"
@@ -40,7 +40,7 @@ Feature: uploadFile
     Then user see uploaded file name contains "cover"
     And user uploads "anotherCover" by using uploadCoverBox(doc,pdf,docx)
     Then user see uploaded file name contains "anotherCover"
-
+  @wip
   Scenario:User can change uploaded cv file by using browseCvBox
     And user uploads "cover" by using browseCoverBox(doc,pdf,docx)
     Then user see uploaded file name contains "cover"

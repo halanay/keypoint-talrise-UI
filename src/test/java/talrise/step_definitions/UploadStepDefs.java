@@ -2,10 +2,7 @@ package talrise.step_definitions;
 
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import talrise.pages.UploadFilePage;
 import talrise.utilities.CommonSteps;
 import java.awt.AWTException;
@@ -175,6 +172,7 @@ public class UploadStepDefs extends CommonSteps {
     @And("user can delete uploaded file")
     public void userCanDeleteUploadedFile() throws InterruptedException {
         uploadFilePage.deleteButton.click();
+
         try{
             String actualFileName= uploadFilePage.fileNameUploaded.getText();}
         catch (RuntimeException e){
@@ -242,9 +240,18 @@ public class UploadStepDefs extends CommonSteps {
     @Then("user see {string} empty")
     public void userSeeEmpty(String fileBox) {
         if(fileBox.equals("cvBox")){
-           Assert.assertTrue(uploadFilePage.uploadCvBox.getText().isEmpty());
+            try{
+                Assert.assertTrue(uploadFilePage.cvUploaded.isDisplayed());
+            }catch (NoSuchElementException e){
+                System.out.println("Upload cv box is empty");
+            }
+
         }else {
-           Assert.assertTrue(uploadFilePage.uploadCoverBox.getText().isEmpty());
+            try{
+                Assert.assertTrue(uploadFilePage.coverUploaded.isDisplayed());
+            }catch (NoSuchElementException e){
+                System.out.println("Upload cv box is empty");
+            }
         }
 
     }

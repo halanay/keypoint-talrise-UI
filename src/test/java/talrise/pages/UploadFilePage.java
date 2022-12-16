@@ -20,8 +20,14 @@ public class UploadFilePage extends CommonPageElements{
     @FindBy(xpath = "(//input[@type=\"file\"])[1]/..")
     public WebElement uploadCvBox;
 
-    @FindBy(css = "[class=\"file-name\"]")
+    @FindBy(xpath = "(//div[@role=\"presentation\"])[1]//p[@class=\"file-name\"]")
     public WebElement fileNameUploaded;
+
+    @FindBy(xpath = "(//div[@role=\"presentation\"])[1]//p[@class=\"file-name\"]")
+    public WebElement cvUploaded;
+
+    @FindBy(xpath = "(//div[@role=\"presentation\"])[2]//p[@class=\"file-name\"]")
+    public WebElement coverUploaded;
 
     @FindBy(xpath = "(//input[@type=\"file\"])[2]")
     public WebElement uploadCoverBox;
