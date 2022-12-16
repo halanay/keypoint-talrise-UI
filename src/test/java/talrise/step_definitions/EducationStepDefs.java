@@ -4,48 +4,46 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import talrise.utilities.CommonSteps;
+import talrise.utilities.ConfigurationReader;
+import talrise.utilities.Driver;
+import talrise.utilities.Log;
 
-public class EducationStepDefs {
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 
-    @Given("User shouldnt add education information  before")
-    public void user_shouldnt_add_education_information_before() {
+import static talrise.pages.PageInitializer.educationStepDef;
+import static talrise.pages.PageInitializer.loginPage;
 
-    }
+public class EducationStepDefs extends CommonSteps {
 
-//    @Given("user clicks on the profile button")
-//    public void user_clicks_on_the_profile_button() {
-//
-//    }
-
-    @Given("user clicks on the education button")
-    public void user_clicks_on_the_education_button() {
-
-    }
-
-    @Given("User clicks related box and put information about University, Degree, Department,Start Year and End Year")
-    public void user_clicks_related_box_and_put_information_about_university_degree_department_start_year_and_end_year() {
-
-    }
-
-    @Given("User click plus ADD education button to add extra other education information")
-    public void user_click_plus_add_education_button_to_add_extra_other_education_information() {
-
-    }
-
-    @Given("user clicks Certificate box and add his her certificates")
-    public void user_clicks_certificate_box_and_add_his_her_certificates() {
-
-
-    }
-    @When("user clicks save button")
-    public void user_clicks_save_button() {
+    @Given("the user goes to login page and enter valid inputs")
+    public void theUserGoesToLoginPageAndEnterValidInputs() {
+        Log.info("User goes to login page and input valid credentials");
+        loginPage.emailTextbox.sendKeys(ConfigurationReader.get("email"));
+        loginPage.passwordTextbox.sendKeys(ConfigurationReader.get("password"));
+        loginPage.loginButton.click();
 
     }
 
-    @Then("user should see \"Your education info has been added successfully")
-    public void user_should_see_your_education_info_has_been_added_successfully() {
+    @And("user clicks on the education button and deletes all informations")
+    public void userClicksOnTheEducationButtonAndDeletesAllInformations() {
+        Log.info("User clicks on the education button then delets previous info");
+        waitForClickablility(educationStepDef.educationButton,2000).click();
+        waitForClickablility(educationStepDef.deleteButton,2000).click();
+
 
     }
-
-
+    @Then("user enters valid inputs of education")
+    public void userEntersValidInputsOfEducation() {
+        Log.info("User goes to Dashboard page and clicks Profile then inputs new Education Info");
+        educationStepDef.educationInfoProcecess();
+    }
 }

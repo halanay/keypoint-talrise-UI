@@ -14,25 +14,20 @@ public class SignUpStepDefs extends CommonSteps {
 
     Faker faker=new Faker();
 
-
-
     @Given("the user clicks on sign up link")
     public void the_user_clicks_on_sign_up_link() {
         signUpPage.signUpButton.click();
 
     }
-
     @When("the user clicks the Create My Account button")
     public void theUserClicksTheCreateMyAccountButton() {
 
         signUpPage.createAccountButton.click();
     }
-
     @Then("error message should appear")
     public void errorMessageShouldAppear() {
         signUpPage.signUpErrorMessage.isDisplayed();
     }
-
 
     @Given("User is on the sign up page")
     public void userIsOnTheSignUpPage() {
@@ -41,10 +36,11 @@ public class SignUpStepDefs extends CommonSteps {
     }
 
     @When("User enters valid inputs")
-    public void userEntersValidInputs() {
+    public void userEntersValidInputs()  {
 
         signUpPage.formFill();
         signUpPage.signUpcreateAccountButton.click();
+
 
     }
 

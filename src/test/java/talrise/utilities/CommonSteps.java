@@ -30,6 +30,7 @@ public class CommonSteps extends PageInitializer {
         element.sendKeys(text);
     }
 
+
     /**
      * takes screenshot
      * @param name

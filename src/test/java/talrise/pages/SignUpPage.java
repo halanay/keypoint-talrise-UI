@@ -14,10 +14,6 @@ public class SignUpPage extends CommonPageElements {
     String linkedIn = "https://www.linkedin.com/in/";
     static String currentURL;
 
-
-
-
-
     @FindBy(xpath = "//*[.=\"SIGN UP\"]")
     public WebElement signUpButton;
 
