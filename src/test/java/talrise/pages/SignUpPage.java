@@ -72,6 +72,11 @@ public class SignUpPage extends CommonPageElements {
     @FindBy(xpath = "//*[contains(text(),'Password must')]")
     public WebElement passwordErrorMessage;
 
+    @FindBy(xpath = "//*[contains(text(),'Please')]")
+    public WebElement generalWarningMessage;
+
+
+
     @FindBy(xpath="//span[contains(text(),'Candidate')]")
     public WebElement candidateButton;
 
