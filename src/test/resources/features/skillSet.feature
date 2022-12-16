@@ -1,3 +1,4 @@
+@regression
 Feature: skillSet Tests
 
   Background: candidate log in
