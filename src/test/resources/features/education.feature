@@ -3,11 +3,13 @@ Feature: education
 # Sign Up ile education kismi bos bir user create edilip sonra ona candidate rolu veriliyor burda
   Background: an user should be sign up and choose candidate role
     Given User is on the sign up page
-    Given user clicks on the completeNowPopUp button
+#    Given user clicks on the completeNowPopUp button
+
 
   Scenario: Sign up with valid credentials.
     When User enters valid inputs
     Then User should be able to sign up.
+
 
   @EduTag1
   Scenario:Happy Path Fill the Education Information

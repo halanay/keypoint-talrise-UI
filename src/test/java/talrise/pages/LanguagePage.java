@@ -28,24 +28,11 @@ public class LanguagePage extends CommonPageElements{
 //    @FindBy(xpath = "//input[@name='searchText']")
 //    public WebElement language_searchBox;
 
-    @FindBy(xpath = "//input[@id=':r8:']")
+    @FindBy(xpath = "//h2[.='Language*']//..//input[@name=\"searchText\"]")
     public WebElement language_searchBox;
 
 
-    public void completeNowPopUpcancelation(){
-        CommonSteps.waitFor(7);
-        try{
-            WebElement m= driver.findElement(By.xpath(("(//*[local-name()='svg'])[27]")));
-            Actions actions = new Actions(driver);
 
-            actions.moveToElement(m).click().build().perform();
-
-        }catch(Exception e){
-
-        }
-
-
-    }
 
 
 
