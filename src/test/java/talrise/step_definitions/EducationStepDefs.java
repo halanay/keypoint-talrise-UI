@@ -43,7 +43,7 @@ public class EducationStepDefs extends CommonSteps {
     }
     @Then("user enters valid inputs of education")
     public void userEntersValidInputsOfEducation() {
-        Log.info("User goes to Dashboard page and clicks Profile then inputs new Education Info");
+        Log.info("User goes to Dashboard page and clicks Profile then inputs new Education Info.");
         educationStepDef.educationInfoProcecess();
     }
 }
