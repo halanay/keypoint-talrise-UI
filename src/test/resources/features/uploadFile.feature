@@ -1,3 +1,4 @@
+@regression
 Feature: uploadFile
 
   Background: User is on Upload Page

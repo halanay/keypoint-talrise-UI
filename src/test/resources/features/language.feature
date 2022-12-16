@@ -1,3 +1,4 @@
+@regression
 Feature: Language feature
 
   Background: user should be logged in as a candidate
