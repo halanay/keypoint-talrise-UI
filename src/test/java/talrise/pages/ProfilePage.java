@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import talrise.utilities.CommonSteps;
 
+import java.util.List;
+
 public class ProfilePage extends CommonPageElements {
   @FindBy(xpath = "//h1")
   public WebElement profileTitle;
@@ -101,6 +103,36 @@ public class ProfilePage extends CommonPageElements {
 
   @FindBy(xpath = "//*[contains(text(),'submitted')]")
   public WebElement experienceSuccessMessage;
+
+  //Industry
+  @FindBy(xpath = "//span[normalize-space()='Industry']")
+  public WebElement industryButton;
+
+  @FindBy(xpath = "//h2[normalize-space()='Industry']")
+  public WebElement industryTitle;
+
+  @FindBy(xpath = "//input[@id=':ra:']")
+  public WebElement industrySearchBox;
+
+  @FindBy(xpath = "//div[@class='sc-cxdZMj dRdSch']//div[@class='sc-iveFHk ftbcFb']//..")
+  public WebElement industrySuggestedFieldBoxList;
+
+  @FindBy(xpath = "//button[normalize-space()='Education']")
+  public WebElement industrySelectedItem;
+
+  @FindBy(xpath = "//ul//li")
+  public List<WebElement> industryExperienceDropDownList;
+
+  @FindBy(xpath = "//div[@class='sc-dIfARi dwHcSA addedLine']//div[@id='select-input-id']")
+  public WebElement industryExperienceBox;
+
+  @FindBy(xpath = "(//*[text()='SAVE'])[5]")
+  public WebElement industrySaveButton;
+
+  @FindBy(xpath = "//*[contains(text(),'industry')]")
+  public WebElement industrySuccessMessage;
+
+
 
 
 
