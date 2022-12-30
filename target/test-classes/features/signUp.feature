@@ -1,3 +1,4 @@
+@regression
 Feature: SignUp
 
 
@@ -15,6 +16,9 @@ Feature: SignUp
   Scenario: Sign up with valid credentials.
     When User enters valid inputs
     Then User should be able to sign up.
+
+
+
 
 
 
@@ -122,6 +126,28 @@ Feature: SignUp
       | Abcd123   |
       #BVA 9 characters test
       | Abcde1234 |
+
+
+  Scenario Outline: User should be able to register as one of the roles
+
+    When User enters valid inputs
+    And user clicks one of the "<role>" at roles page
+   # Then user should see the success message
+
+
+    Examples:
+
+      | role      |
+      | candidate |
+      | client    |
+      | partner   |
+
+
+Scenario: User registers as role candidate
+
+  When User enters valid inputs and registers as "candidate"
+  Then user should see sign up success message
+  And user should land to dashboard page
 
 
 

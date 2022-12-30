@@ -1,3 +1,4 @@
+@regression
 Feature: education
 
   Background: user should be logged in as a candidate
@@ -9,5 +10,8 @@ Feature: education
     And user clicks on the profile button
     And user clicks on the education button and deletes all information
     Then user enters valid inputs of education
+
+    #comment
+    #comment
 
 
