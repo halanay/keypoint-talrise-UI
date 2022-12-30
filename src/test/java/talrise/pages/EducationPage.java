@@ -8,6 +8,7 @@ import java.util.List;
 
 import static talrise.pages.PageInitializer.educationStepDef;
 import static talrise.utilities.CommonSteps.clickWithJS;
+import static talrise.utilities.CommonSteps.waitForVisibility;
 
 public class EducationPage extends CommonPageElements {
 
@@ -55,7 +56,7 @@ public class EducationPage extends CommonPageElements {
     @FindBy(xpath = "/html/body/div[2]/div[3]/ul/li")
     public List<WebElement> endYearList;
 
-    @FindBy(xpath = "//*[@class='sc-gikAfH hQZbzO sc-hZDVde jOqzXV addEdu']")
+    @FindBy(xpath = "//span[contains(text(),'+ ADD EDUCATION')]")
     public WebElement addEdcationButton;
 
     @FindBy(xpath = "(//*[@class='sc-gikAfH aiAIi sc-hZDVde jOqzXV btn-delete'])[2]")
@@ -112,8 +113,8 @@ public class EducationPage extends CommonPageElements {
         endList.get(0).click();
 
         //add edusation proccess
-        educationStepDef.addEdcationButton.click();
-        educationStepDef.secondDeleteButton.click();
+       waitForVisibility(educationStepDef.addEdcationButton,3).click();
+       waitForVisibility(educationStepDef.secondDeleteButton,5).click();
 
         //sendİnputText
         educationStepDef.sendInputText.sendKeys("Test");
