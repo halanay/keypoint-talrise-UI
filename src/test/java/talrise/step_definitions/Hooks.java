@@ -18,7 +18,7 @@ public class Hooks {
         byte[] picture;
         if (scenario.isFailed()) {
             // take screenshot and save it in /failed
-            picture = CommonSteps.takeScreenshot("failed/" + scenario.getName());
+            picture = CommonSteps.takeScreenshot("failed/" + scenario.getName()); // notes
             scenario.attach(picture, "image/png", scenario.getName());
         }
 //        Driver.closeDriver();
