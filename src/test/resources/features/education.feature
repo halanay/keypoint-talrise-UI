@@ -1,3 +1,4 @@
+@regression
 Feature: education
 
   Background: user should be logged in as a candidate

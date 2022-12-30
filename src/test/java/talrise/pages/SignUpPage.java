@@ -68,6 +68,27 @@ public class SignUpPage extends CommonPageElements {
     @FindBy(xpath = "//*[contains(text(),'Password must')]")
     public WebElement passwordErrorMessage;
 
+    @FindBy(xpath="//span[contains(text(),'Candidate')]")
+    public WebElement candidateButton;
+
+    @FindBy(xpath="//span[contains(text(),'Client')]")
+    public WebElement clientButton;
+
+    @FindBy(xpath="//span[contains(text(),'Partner')]")
+    public WebElement partnerButton;
+
+    @FindBy(xpath="//span[@class='sc-eDWCr lnFXuG btn-next']")
+    public WebElement nextSignUpRolesButton;
+
+    @FindBy(xpath="//p[contains(text(),'Thanks you for joining Tailrise !')]")
+    public WebElement signUpsuccess;
+
+    @FindBy(xpath = "//span[normalize-space()='COMPLETE MY PROFILE NOW']']")
+    public WebElement completeNow;
+
+
+
+
     public void formFill(){
         firstNameBox.sendKeys(faker.name().firstName());
         lastNameBox.sendKeys(faker.name().lastName());
