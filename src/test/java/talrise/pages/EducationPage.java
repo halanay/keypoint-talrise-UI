@@ -12,7 +12,7 @@ import static talrise.utilities.CommonSteps.clickWithJS;
 public class EducationPage extends CommonPageElements {
 
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/div/div[2]/div/div[1]/button[1]")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/div/div[2]/div/div[1]/button[1]") // notes
     public WebElement candidateButton;
     @FindBy(xpath = "(//*[@class='MuiAccordionSummary-content css-1n11r91'])[8]")
     public WebElement educationButton;
