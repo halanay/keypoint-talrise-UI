@@ -1,4 +1,4 @@
-@regression
+@uploadFilePage
 Feature: uploadFile
 
   Background: User is on Upload Page
@@ -7,6 +7,7 @@ Feature: uploadFile
     And close complete now popup
     And click on profile button
     And select upload file
+
 
   Scenario:User can load cv file using CvBox
     And user uploads "cv" by using uploadCvBox(doc,pdf,docx)
@@ -25,10 +26,10 @@ Feature: uploadFile
     Then user see uploaded file name contains "cover"
 
   Scenario:User can change uploaded cv file by using uploadCvBox
-  And user uploads "cv" by using uploadCvBox(doc,pdf,docx)
-  And user can delete uploaded file
-  And user uploads "anotherCv" by using uploadCvBox(doc,pdf,docx)
-  Then user see uploaded file name contains "anotherCv"
+    And user uploads "cv" by using uploadCvBox(doc,pdf,docx)
+    And user can delete uploaded file
+    And user uploads "anotherCv" by using uploadCvBox(doc,pdf,docx)
+    Then user see uploaded file name contains "anotherCv"
 
   Scenario:User can change uploaded cv file by using browseCvBox
     And user uploads "cv" by using browseCvBox(doc,pdf,docx)
@@ -41,7 +42,7 @@ Feature: uploadFile
     Then user see uploaded file name contains "cover"
     And user uploads "anotherCover" by using uploadCoverBox(doc,pdf,docx)
     Then user see uploaded file name contains "anotherCover"
-  @wip
+
   Scenario:User can change uploaded cv file by using browseCvBox
     And user uploads "cover" by using browseCoverBox(doc,pdf,docx)
     Then user see uploaded file name contains "cover"
@@ -49,22 +50,22 @@ Feature: uploadFile
     Then user see uploaded file name contains "anotherCover"
 
   Scenario: User can save cv in uploadFile Page
-      And user uploads "cv" by using uploadCvBox(doc,pdf,docx)
-      When  user clicks save button in uploadFile Page
-      Then  user should see "Your Cv has been uploaded successfully." for "cv"
-
+    And user uploads "cv" by using uploadCvBox(doc,pdf,docx)
+    When  user clicks save button in uploadFile Page
+    Then  user should see "Your Cv has been uploaded successfully." for "cv"
+    And user can delete uploaded file
 
   Scenario: User can save cover in uploadFile Page
     And user uploads "cover" by using uploadCoverBox(doc,pdf,docx)
     When  user clicks save button in uploadFile Page
     Then user should see "Your Cover Letter has been uploaded successfully." for "cover"
+    And user can delete uploaded file
 
-
-    Scenario: User can use cancel button to clear changes
-      And user uploads "cv" by using browseCvBox(doc,pdf,docx)
-      And user uploads "cover" by using uploadCoverBox(doc,pdf,docx)
-      When user clicks cancel button in uploadFile Page
-      Then user see "cvBox" empty
+  Scenario: User can use cancel button to clear changes
+    And user uploads "cv" by using browseCvBox(doc,pdf,docx)
+    And user uploads "cover" by using uploadCoverBox(doc,pdf,docx)
+    When user clicks cancel button in uploadFile Page
+    Then user see file boxes empty
 
 
 
