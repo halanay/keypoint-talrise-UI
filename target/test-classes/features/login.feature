@@ -1,3 +1,4 @@
+@regression
 Feature: Login Feature
 
   @login
