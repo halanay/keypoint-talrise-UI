@@ -138,6 +138,7 @@ public class SignUpPage extends CommonPageElements {
         confirmPasswordBox.sendKeys("Test123456!");
         GDPRcheckbox.click();
 
+
     }
 
     public void RolePageAssertion(){

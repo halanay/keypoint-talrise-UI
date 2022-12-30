@@ -13,7 +13,6 @@ public class LanguageStepDefs extends CommonSteps {
     public void theUserClikOnTheProfileButton() {
         languagePage.completeNowPopUpcancelation();
 
-
     }
 
     @And("user clicks on the profile button")
@@ -27,18 +26,14 @@ public class LanguageStepDefs extends CommonSteps {
 
         languagePage.languageButton.click();
     }
-
     @When("user clicks on the search box")
     public void UserClicksOnTheSearchBox() {
 
-
         languagePage.language_searchBox.click();
     }
-
     @Then("user  is able to type or enter in the search box or not")
     public void UserIsAbleToTypeOrEnterInTheSearchBoxOrNot() {
         click(languagePage.language_searchBox);
         languagePage.language_searchBox.sendKeys("English");
-
     }
 }
