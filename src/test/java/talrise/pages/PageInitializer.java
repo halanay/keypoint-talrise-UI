@@ -9,6 +9,7 @@ public class PageInitializer extends Driver {
     public static LanguagePage languagePage;
     public static UploadFilePage uploadFilePage;
     public static ProfilePage profilePage;
+    public static ActivityPage activityPage;
 
 
 
@@ -18,6 +19,7 @@ public class PageInitializer extends Driver {
         languagePage=new LanguagePage();
         uploadFilePage = new UploadFilePage();
         profilePage=new ProfilePage();
+        activityPage=new ActivityPage();
 
 
     }
