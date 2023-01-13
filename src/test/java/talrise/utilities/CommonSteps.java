@@ -5,6 +5,9 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 import talrise.pages.PageInitializer;
 
 import java.io.File;
@@ -662,6 +665,32 @@ public class CommonSteps extends PageInitializer {
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,document.body.scrollHeight)");
 
 
+    }
+
+    public static void clickOnImage(String imageName){
+        String userDir = System.getProperty("user.dir");
+        String imageAddress = userDir+"\\src\\test\\resources\\sikuliImages\\"+imageName+".png";
+        Screen screen = new Screen();
+        Pattern pattern = new Pattern(imageAddress);
+        try {
+            screen.wait(pattern,5000);
+            screen.click(pattern);
+        } catch (FindFailed e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void sendKeysOnImage(String imageName, String text) {
+        String userDir = System.getProperty("user.dir");
+        String imageAddress = userDir+"\\src\\test\\resources\\sikuliImages\\"+imageName+".png";
+        Screen screen = new Screen();
+        Pattern pattern = new Pattern(imageAddress);
+        try {
+            screen.wait(pattern,5000);
+            screen.type(text);
+        } catch (FindFailed e) {
+            e.printStackTrace();
+        }
     }
 
 }
