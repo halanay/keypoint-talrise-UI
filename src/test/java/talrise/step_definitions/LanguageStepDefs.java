@@ -11,7 +11,7 @@ public class LanguageStepDefs extends CommonSteps {
 
     @Given("user clicks on the completeNowPopUp button")
     public void theUserClikOnTheProfileButton() {
-        languagePage.completeNowPopUpcancelation();
+        loginPage.completeNowPopUpcancelation();
 
     }
 
