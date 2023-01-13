@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import talrise.utilities.CommonSteps;
 
+import java.util.Random;
+
 public class SignUpPage extends CommonPageElements {
 
 
@@ -13,7 +15,6 @@ public class SignUpPage extends CommonPageElements {
     Faker faker = new Faker();
     String linkedIn = "https://www.linkedin.com/in/";
     static String currentURL;
-
 
 
 
@@ -72,6 +73,11 @@ public class SignUpPage extends CommonPageElements {
     @FindBy(xpath = "//*[contains(text(),'Password must')]")
     public WebElement passwordErrorMessage;
 
+    @FindBy(xpath = "//*[contains(text(),'Please')]")
+    public WebElement generalWarningMessage;
+
+
+
     @FindBy(xpath="//span[contains(text(),'Candidate')]")
     public WebElement candidateButton;
 
@@ -91,12 +97,42 @@ public class SignUpPage extends CommonPageElements {
     public WebElement completeNow;
 
 
+    private static final String CHAR_LIST =
+            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final int RANDOM_STRING_LENGTH = 10;
 
+    public String randomLinkedin(){
+        StringBuffer randomLinkedin = new StringBuffer();
+        for(int i=0; i<RANDOM_STRING_LENGTH; i++){
+            int number = getRandomNumber();
+            char ch = CHAR_LIST.charAt(number);
+            randomLinkedin.append(ch);
+        }
+        return randomLinkedin.toString();
+    }
+
+    private int getRandomNumber() {
+        int randomInt = 0;
+        Random randomGenerator = new Random();
+        randomInt = randomGenerator.nextInt(CHAR_LIST.length());
+        if (randomInt - 1 == -1) {
+            return randomInt;
+        } else {
+            return randomInt - 1;
+        }
+    }
+    public static void main(String args[]) {
+        SignUpPage   singupPage = new SignUpPage();
+        for (int i = 0; i < 10; i++) {
+            System.out.println(singupPage.randomLinkedin());
+        }
+    }
 
     public void formFill(){
         firstNameBox.sendKeys(faker.name().firstName());
         lastNameBox.sendKeys(faker.name().lastName());
-        linkedInBox.sendKeys(linkedIn.concat(faker.name().firstName()));
+        linkedInBox.sendKeys(linkedIn.concat(randomLinkedin()));
+       // linkedInBox.sendKeys(linkedIn.concat(faker.name().firstName()).concat(faker.name().lastName()));
         emailBox.sendKeys(faker.internet().emailAddress());
         passswordBox.sendKeys("Test123456!");
         confirmPasswordBox.sendKeys("Test123456!");
@@ -104,6 +140,7 @@ public class SignUpPage extends CommonPageElements {
 
 
     }
+
     public void RolePageAssertion(){
         CommonSteps.waitFor(5);
         currentURL = driver.getCurrentUrl();
@@ -148,7 +185,8 @@ public class SignUpPage extends CommonPageElements {
     public void emailTestForm(String str){
         firstNameBox.sendKeys(faker.name().firstName());
         lastNameBox.sendKeys(faker.name().lastName());
-        linkedInBox.sendKeys(linkedIn.concat(faker.name().firstName()));
+        linkedInBox.sendKeys(linkedIn.concat(randomLinkedin()));
+        // linkedInBox.sendKeys(linkedIn.concat(faker.name().firstName()).concat(faker.name().lastName()));
         emailBox.sendKeys(str);
         passswordBox.sendKeys("Test123456!");
         confirmPasswordBox.sendKeys("Test123456!");
@@ -181,7 +219,8 @@ public class SignUpPage extends CommonPageElements {
     public void passwordTestForm(String password){
         firstNameBox.sendKeys(faker.name().firstName());
         lastNameBox.sendKeys(faker.name().lastName());
-        linkedInBox.sendKeys(linkedIn.concat(faker.name().firstName()));
+        linkedInBox.sendKeys(linkedIn.concat(randomLinkedin()));
+     // linkedInBox.sendKeys(linkedIn.concat(faker.name().firstName()).concat(faker.name().lastName()));
         emailBox.sendKeys(faker.internet().emailAddress());
         passswordBox.sendKeys(password);
         confirmPasswordBox.sendKeys(password);

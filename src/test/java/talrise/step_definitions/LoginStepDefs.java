@@ -33,7 +33,7 @@ public class LoginStepDefs extends CommonSteps {
         loginPage.emailTextbox.sendKeys(ConfigurationReader.get("email"));
         loginPage.passwordTextbox.sendKeys(ConfigurationReader.get("password"));
 
-            loginPage.loginButton.click();
+        loginPage.loginButton.click();
 
 
     }

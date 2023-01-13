@@ -20,8 +20,11 @@ public class LoginPage extends CommonPageElements{
     @FindBy(css = "[type=\"submit\"]")
     public WebElement loginButton;
 
-    @FindBy(xpath = "(//div[contains(text(),'Logged in successfully.')])[1]")
+    @FindBy(xpath = "//*[contains(text(),'successfully')]")
     public WebElement loginMessage;
+
+    @FindBy(xpath = "//*[text()='complete now']")
+    public WebElement completeNowButton;
 
     public void candidateLogin(){
 

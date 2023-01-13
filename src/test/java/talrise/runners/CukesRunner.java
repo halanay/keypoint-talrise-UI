@@ -11,8 +11,8 @@ import org.junit.runner.RunWith;
                 "rerun:target/failed.txt"},
         features = "src/test/resources/features",
         glue = "talrise/step_definitions",
-        dryRun = false,
-        tags = "@wip"
+        dryRun = true,
+        tags = "@admin"
 )
 public class CukesRunner {
 }

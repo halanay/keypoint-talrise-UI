@@ -31,10 +31,10 @@ public class UploadStepDefs extends CommonSteps {
 //    }
 
     String systemUsername = System.getenv("USERNAME");
-    String cv="C:\\Users\\"+systemUsername+"\\Desktop\\admin candidate skills.docx";
-    String cover="C:\\Users\\"+systemUsername+"\\Desktop\\ders programı.pdf";
-    String anotherCv="C:\\Users\\"+systemUsername+"\\Desktop\\ders programı.pdf";
-    String anotherCover="C:\\Users\\"+systemUsername+"\\Desktop\\idler.docx";
+    String cv="C:\\Users\\"+systemUsername+"\\IdeaProjects\\keypoint-talrise-UI\\cv1.docx";
+    String cover="C:\\Users\\"+systemUsername+"\\IdeaProjects\\keypoint-talrise-UI\\cover1.docx";
+    String anotherCv="C:\\Users\\"+systemUsername+"\\IdeaProjects\\keypoint-talrise-UI\\cv2.pdf";
+    String anotherCover="C:\\Users\\"+systemUsername+"\\IdeaProjects\\keypoint-talrise-UI\\cover2.pdf";
     StringSelection str;
     JavascriptExecutor js = (JavascriptExecutor)driver; // Scroll operation using Js Executor
     Robot rb = new Robot(); // creating object of Robot class
@@ -168,23 +168,24 @@ public class UploadStepDefs extends CommonSteps {
     }
 
 
-  
+
     @And("user can delete uploaded file")
     public void userCanDeleteUploadedFile() throws InterruptedException {
+        waitForVisibility(uploadFilePage.deleteButton,10);
         uploadFilePage.deleteButton.click();
 
         try{
-            String actualFileName= uploadFilePage.fileNameUploaded.getText();}
+            String actualFileName= uploadFilePage.fileUploaded.get(0).getText();}
         catch (RuntimeException e){
             System.out.println("File deleted");
         }
         System.out.println("cv deleted");
-        Thread.sleep(3000);
+
     }
 
     @Then("user see uploaded file name contains {string}")
     public void userSeeUploadedFileNameContains(String fileName) {
-        String actualFileName= uploadFilePage.fileNameUploaded.getText();
+        String actualFileName= uploadFilePage.fileUploaded.get(0).getText();
         System.out.println("actualFileName = " + actualFileName);
         String fileLocation=fileNameCreator(fileName);
         System.out.println("file = " + fileLocation.substring(fileLocation.lastIndexOf("\\") + 1));
@@ -194,11 +195,11 @@ public class UploadStepDefs extends CommonSteps {
 
     public String fileNameCreator(String fileSelection){
         if(fileSelection.equalsIgnoreCase("cv")) return cv;
-    else if(fileSelection.equalsIgnoreCase("cover")) return cover;
-    else if(fileSelection.equalsIgnoreCase("anotherCv")) return anotherCv;
-    else if(fileSelection.equalsIgnoreCase("anotherCover"))return anotherCover;
+        else if(fileSelection.equalsIgnoreCase("cover")) return cover;
+        else if(fileSelection.equalsIgnoreCase("anotherCv")) return anotherCv;
+        else if(fileSelection.equalsIgnoreCase("anotherCover"))return anotherCover;
 
-    else return "File Not Found";
+        else return "File Not Found";
 
 
     }
@@ -237,22 +238,9 @@ public class UploadStepDefs extends CommonSteps {
     }
 
 
-    @Then("user see {string} empty")
-    public void userSeeEmpty(String fileBox) {
-        if(fileBox.equals("cvBox")){
-            try{
-                Assert.assertTrue(uploadFilePage.cvUploaded.isDisplayed());
-            }catch (NoSuchElementException e){
-                System.out.println("Upload cv box is empty");
-            }
-
-        }else {
-            try{
-                Assert.assertTrue(uploadFilePage.coverUploaded.isDisplayed());
-            }catch (NoSuchElementException e){
-                System.out.println("Upload cv box is empty");
-            }
-        }
-
+    @Then("user see file boxes empty")
+    public void userSeeFileBoxesEmpty() {
+        int numberOfFileUploaded=uploadFilePage.fileUploaded.size();
+        Assert.assertEquals(numberOfFileUploaded,0);
     }
 }

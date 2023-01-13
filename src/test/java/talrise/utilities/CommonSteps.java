@@ -30,6 +30,7 @@ public class CommonSteps extends PageInitializer {
         element.sendKeys(text);
     }
 
+
     /**
      * takes screenshot
      * @param name
@@ -656,6 +657,11 @@ public class CommonSteps extends PageInitializer {
     public static String getPlease_fill_in_this_field_Message(WebElement inputBox){
         String message =inputBox.getAttribute("validationMessage");
         return message;
+    }
+    public static void scrollToBottom() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,document.body.scrollHeight)");
+
+
     }
 
 }
