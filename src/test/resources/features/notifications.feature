@@ -1,3 +1,4 @@
+@regression
 Feature: Notifications
   Scenario:Notifications (Happy Path)
     * US2 Candidate user fills the email and password and clicks login button

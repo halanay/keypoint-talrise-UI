@@ -16,12 +16,13 @@ public class SignUpStepDefs extends CommonSteps {
 
     @Given("the user clicks on sign up link")
     public void the_user_clicks_on_sign_up_link() {
-        signUpPage.signUpButton.click();
+//        waitFor(1);
+//        signUpPage.signUpButton.click();
 
     }
     @When("the user clicks the Create My Account button")
     public void theUserClicksTheCreateMyAccountButton() {
-
+        waitFor(1);
         signUpPage.createAccountButton.click();
     }
     @Then("error message should appear")
@@ -29,8 +30,8 @@ public class SignUpStepDefs extends CommonSteps {
         signUpPage.signUpErrorMessage.isDisplayed();
     }
 
-    @Given("User is on the sign up page")
-    public void userIsOnTheSignUpPage() {
+    @Given("User clicks on Sign Up link")
+    public void userClicksOnSignUpLink() {
 
         signUpPage.signUpButton.click();
     }
@@ -45,10 +46,9 @@ public class SignUpStepDefs extends CommonSteps {
     }
 
     @Then("User should be able to sign up.")
-    public void userShouldBeAbleToSignUp() throws InterruptedException {
-//     signUpPage.RolePageAssertion();
+    public void userShouldBeAbleToSignUp() {
 
-        Thread.sleep(1000);
+        waitForVisibility(signUpPage.RegisteredPopUp, 10);
         Assert.assertTrue(signUpPage.RegisteredPopUp.isDisplayed());
 
 
@@ -128,12 +128,15 @@ public class SignUpStepDefs extends CommonSteps {
         CommonSteps.waitForPageToLoad(5);
 
         if (role=="candidate") {
+            waitFor(3);
             signUpPage.candidateButton.click();
             System.out.println("candidate registered");
         }else if (role=="client"){
+            waitFor(3);
             signUpPage.clientButton.click();
            System.out.println("client registered");
         }else if(role=="partner") {
+            waitFor(3);
             signUpPage.partnerButton.click();
         }
     };
@@ -173,6 +176,11 @@ public class SignUpStepDefs extends CommonSteps {
         signUpPage.completeNow.click();
 
 
+    }
+
+    @Then("Create My Account button should be disabled")
+    public void create_my_account_button_should_be_disabled() {
+        Assert.assertTrue(signUpPage.createAccountButton.getAttribute("outerHTML").contains("disabled"));
     }
 }
 

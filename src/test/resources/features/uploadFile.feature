@@ -1,3 +1,4 @@
+@regression
 @uploadFilePage
 Feature: uploadFile
 

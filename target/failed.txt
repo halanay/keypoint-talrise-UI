@@ -1,0 +1,6 @@
+file:src/test/resources/features/uploadFile.feature:17:21:25:35:41:47:53:59:65
+file:src/test/resources/features/signUp.feature:90:92
+file:src/test/resources/features/candidateIndustry.feature:6
+file:src/test/resources/features/candidateExperience.feature:7
+file:src/test/resources/features/candidatePersonalInfo.feature:6
+file:src/test/resources/features/language.feature:7

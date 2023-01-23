@@ -1,3 +1,4 @@
+@regression
 Feature: US_2_UI
   @best
   @smoke

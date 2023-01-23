@@ -1,30 +1,24 @@
 @regression
+@signup
 Feature: SignUp
 
 
   Background:
-    Given User is on the sign up page
+    Given User clicks on Sign Up link
 
 
   Scenario: Try to signup with empty form
-
-    Given the user clicks on sign up link
     When the user clicks the Create My Account button
-    Then error message should appear
+    Then Create My Account button should be disabled
 
 
   Scenario: Sign up with valid credentials.
     When User enters valid inputs
     Then User should be able to sign up.
 
-
-
-
-
-
   Scenario Outline: User should not be allowed to sign up with blank required inputs
     When the user leaves blank user information "<firstName>" "<lastName>""<linkedin>""<email>""<password>""<confirmPassword>""<gdpr>"
-    Then error message should appear
+    Then Create My Account button should be disabled
 #    And create my account button should not be enabled ?? the button is still enabled *******TBC*********
 
     Examples:
@@ -46,7 +40,7 @@ Feature: SignUp
       #  Empty strings shouldn't be validated (e.g. lazslo, Lazslo, and LAZSLO).
 
     When the user enters invalid "<firstName>" name inputs
-    Then warning message is displayed
+    Then Create My Account button should be disabled
 
     Examples:
       | firstName                                           |
@@ -66,7 +60,7 @@ Feature: SignUp
 
     When the user enters invalid "<email>" mail inputs
     And the user clicks on Create My Account button
-    Then email error message should appear
+    Then Create My Account button should be disabled
 
     Examples:
       | email               |
@@ -88,7 +82,7 @@ Feature: SignUp
 
     When the user enters invalid "<linkedin>"linkedin input
     And the user clicks on Create My Account button
-    Then linkedin error message should be displayed
+    Then Create My Account button should be disabled
 
     Examples:
       | linkedin                                                                                                                          |
@@ -107,7 +101,7 @@ Feature: SignUp
 
     When the user enters invalid "<password>" password inputs
     And the user clicks on Create My Account button
-    Then password error message should be displayed
+    Then Create My Account button should be disabled
 
     Examples:
       | password  |
@@ -127,27 +121,29 @@ Feature: SignUp
       #BVA 9 characters test
       | Abcde1234 |
 
-
-  Scenario Outline: User should be able to register as one of the roles
-
-    When User enters valid inputs
-    And user clicks one of the "<role>" at roles page
-   # Then user should see the success message
-
-
-    Examples:
-
-      | role      |
-      | candidate |
-      | client    |
-      | partner   |
-
-
-Scenario: User registers as role candidate
-
-  When User enters valid inputs and registers as "candidate"
-  Then user should see sign up success message
-  And user should land to dashboard page
+  ##################################################################################################################
+#   THE SCENARIOS BELOW CANNOT BE TESTED FOR NOW, BECAUSE OF THE CONFIRM EMAIL PROCESS. THEY SHOULD BE UPDATED TO ALLOW AUTOMATION PROCESS
+  ##################################################################################################################
+#  Scenario Outline: User should be able to register as one of the roles
+#
+#    When User enters valid inputs
+#    And user clicks one of the "<role>" at roles page
+#   # Then user should see the success message
+#
+#
+#    Examples:
+#
+#      | role      |
+#      | candidate |
+#      | client    |
+#      | partner   |
+#
+#
+#Scenario: User registers as role candidate
+#
+#  When User enters valid inputs and registers as "candidate"
+#  Then user should see sign up success message
+#  And user should land to dashboard page
 
 
 
