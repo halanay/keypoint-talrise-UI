@@ -5,7 +5,6 @@ Feature: education
     Given the user goes to login page and enter valid inputs
 
   @education
-  @fix
   Scenario: User fills the education input fields
     Given user clicks on the completeNowPopUp button
     And user clicks on the profile button

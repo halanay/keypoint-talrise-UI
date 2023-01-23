@@ -1,3 +1,4 @@
+@regression
 Feature: US_1_UI
   @best
   @smoke
@@ -6,15 +7,15 @@ Feature: US_1_UI
     * US1 User verifies the Sign Up title
     * US1 User fills firstName, lastName, email, password,confirmPassword and clicks GDPR and create account button
     * US1 User verifies the success message
-    * US1 User close the browser
+#    * US1 User close the browser
   @best
     @smoke
   Scenario Outline: Sign Up (NEGATIVE)
     * US1 User clicks on sign up button
     * US1 User verifies the Sign Up title
     * US1 User fills "<firstName>", "<lastName>","<linkedIn>", "<email>", "<password>","<confirmPassword>" and clicks GDPR and create account button
-    * US1 User verifies the warning message
-    * US1 User close the browser
+    * Create My Account button should be disabled
+#    * US1 User close the browser
 
 
     Examples: Credential Table
