@@ -3,24 +3,15 @@ package talrise.step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import talrise.utilities.CommonSteps;
 import talrise.utilities.ConfigurationReader;
-import talrise.utilities.Driver;
 import talrise.utilities.Log;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
-
-import static talrise.pages.PageInitializer.educationStepDef;
-import static talrise.pages.PageInitializer.loginPage;
+import java.util.Random;
 
 public class EducationStepDefs extends CommonSteps {
 
@@ -35,13 +26,42 @@ public class EducationStepDefs extends CommonSteps {
     @And("user clicks on the education button and deletes all information")
     public void userClicksOnTheEducationButtonAndDeletesAllInformation() {
         Log.info("User clicks on the education button then delets previous info");
-        waitForClickablility(educationStepDef.educationButton, 2000).click();
-        waitForClickablility(educationStepDef.deleteButton, 2000).click();
+        waitForClickablility(educationPage.educationButton, 2000).click();
+        waitForClickablility(educationPage.firstDeleteButton, 20).click();
     }
 
-    @Then("user enters valid inputs of education")
-    public void userEntersValidInputsOfEducation() {
+    @Then("user should be able to save their education details with valid inputs")
+    public void userShouldBeAbleToSaveTheirEducationDetaisWithValidInputs() {
         Log.info("User goes to Dashboard page and clicks Profile then inputs new Education Info.");
-        educationStepDef.educationInfoProcecess();
+        clickWithJS(educationPage.universitiesButton);
+        List<WebElement> allUniversity;
+        allUniversity= educationPage.universitiesListBox;
+        allUniversity.get(5).click();
+        educationPage.degreeButton.click();
+        Random random = new Random();
+        int randomNumber = random.nextInt(educationPage.dropdownOptionsList.size());
+        waitForVisibility(educationPage.dropdownOptionsList.get(randomNumber), 10);
+        educationPage.dropdownOptionsList.get(randomNumber).click();
+        educationPage.departmentButton.click();
+        randomNumber = random.nextInt(educationPage.dropdownOptionsList.size());
+        educationPage.dropdownOptionsList.get(randomNumber).click();
+        educationPage.startYearButton.click();
+        waitFor(1);
+        randomNumber = random.nextInt(educationPage.dropdownOptionsList.size());
+        waitForClickablility(educationPage.dropdownOptionsList.get(randomNumber),10);
+        educationPage.dropdownOptionsList.get(randomNumber).click();
+        educationPage.endYearButton.click();
+        waitFor(1);
+        randomNumber = random.nextInt(educationPage.dropdownOptionsList.size());
+        waitForClickablility(educationPage.dropdownOptionsList.get(randomNumber),10);
+        educationPage.dropdownOptionsList.get(randomNumber).click();
+        waitForVisibility(educationPage.addEdcationButton,3).click();
+        waitForVisibility(educationPage.secondDeleteButton,5).click();
+        educationPage.sendInputText.sendKeys("Test");
+        educationPage.aDDbutton.click();
+        clickWithJS(educationPage.clickX);
+        educationPage.educationSaveButton.click();
+        Assert.assertTrue(educationPage.educationSavedSuccessfullyPopup.isDisplayed());
+        educationPage.closeTheEducationPartButton.click();
     }
 }

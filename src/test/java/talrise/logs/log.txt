@@ -7,3 +7,109 @@
 2022-12-30 22:18:09 INFO  Log:37 - User goes to login page and input valid credentials
 2022-12-30 22:18:17 INFO  Log:37 - User clicks on the education button then delets previous info
 2022-12-30 22:18:19 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 19:26:02 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 19:26:14 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 19:31:13 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 19:31:24 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 19:39:41 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 19:39:54 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 20:30:53 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 20:31:04 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 20:32:37 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 20:32:48 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 20:49:37 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 20:49:48 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 20:49:51 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:01:18 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:01:29 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 21:01:32 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:38:09 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:38:20 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 21:38:23 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:41:57 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:42:09 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 21:42:12 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:44:35 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:44:46 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 21:44:50 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:45:17 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:45:28 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 21:45:30 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:48:10 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:48:21 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 21:48:24 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:48:50 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:49:01 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 21:49:05 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:50:36 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:50:47 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 21:50:50 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:54:23 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:54:34 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 21:54:38 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:56:52 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:57:04 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 21:57:07 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 21:59:47 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 21:59:58 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 22:00:01 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 22:01:46 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 22:01:57 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 22:02:00 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 22:07:12 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 22:07:23 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 22:07:26 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 22:11:52 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 22:12:03 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 22:12:06 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 22:14:20 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 22:14:31 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 22:14:34 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-20 22:18:12 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-20 22:18:23 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-20 22:18:26 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:24:22 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:24:33 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:24:34 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:25:42 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:25:53 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:25:55 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:26:32 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:26:43 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:26:45 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:28:30 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:28:41 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:28:43 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:29:38 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:29:48 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:29:51 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:30:42 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:30:52 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:30:55 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:32:34 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:32:45 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:32:48 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:34:45 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:34:56 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:34:59 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:36:26 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:36:37 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:36:40 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:38:07 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:38:18 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:38:19 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:39:50 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:40:00 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:40:02 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:49:39 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:49:49 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:49:51 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:51:46 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:51:57 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:51:58 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 10:54:51 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 10:55:02 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 10:55:03 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.
+2023-01-23 11:00:51 INFO  Log:37 - User goes to login page and input valid credentials
+2023-01-23 11:01:02 INFO  Log:37 - User clicks on the education button then delets previous info
+2023-01-23 11:01:04 INFO  Log:37 - User goes to Dashboard page and clicks Profile then inputs new Education Info.

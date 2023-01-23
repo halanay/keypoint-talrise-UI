@@ -1,5 +1,6 @@
 package talrise.utilities;
 
+import jdk.jfr.Timespan;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -166,22 +168,22 @@ public class CommonSteps extends PageInitializer {
      * Waits for provided element to be clickable
      *
      * @param element
-     * @param timeout
+     * @param timeoutInSeconds
      * @return
      */
-    public static WebElement waitForClickablility(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
+    public static WebElement waitForClickablility(WebElement element, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
     /**
      * Waits for element matching the locator to be clickable
      *
      * @param locator
-     * @param timeout
+     * @param timeoutInSeconds
      * @return
      */
-    public static WebElement waitForClickability(WebElement locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
+    public static WebElement waitForClickability(WebElement locator, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 

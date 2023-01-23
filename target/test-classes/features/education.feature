@@ -5,14 +5,12 @@ Feature: education
     Given the user goes to login page and enter valid inputs
 
   @education
+  @fix
   Scenario: User fills the education input fields
     Given user clicks on the completeNowPopUp button
     And user clicks on the profile button
     And user clicks on the education button and deletes all information
-    Then user enters valid inputs of education
+    Then user should be able to save their education details with valid inputs
 
-    #comment
-    #comment
-    #deneme
 
 
