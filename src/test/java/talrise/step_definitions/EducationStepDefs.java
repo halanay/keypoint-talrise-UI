@@ -3,49 +3,65 @@ package talrise.step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import talrise.utilities.CommonSteps;
+import talrise.utilities.ConfigurationReader;
+import talrise.utilities.Log;
 
-public class EducationStepDefs {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
-    @Given("User shouldnt add education information  before")
-    public void user_shouldnt_add_education_information_before() {
+public class EducationStepDefs extends CommonSteps {
 
+    @Given("the user goes to login page and enter valid inputs")
+    public void theUserGoesToLoginPageAndEnterValidInputs() {
+        Log.info("User goes to login page and input valid credentials");
+        loginPage.emailTextbox.sendKeys(ConfigurationReader.get("email"));
+        loginPage.passwordTextbox.sendKeys(ConfigurationReader.get("password"));
+        loginPage.loginButton.click();
     }
 
-//    @Given("user clicks on the profile button")
-//    public void user_clicks_on_the_profile_button() {
-//
-//    }
-
-    @Given("user clicks on the education button")
-    public void user_clicks_on_the_education_button() {
-
+    @And("user clicks on the education button and deletes all information")
+    public void userClicksOnTheEducationButtonAndDeletesAllInformation() {
+        Log.info("User clicks on the education button then delets previous info");
+        waitForClickablility(educationPage.educationButton, 2000).click();
+        waitForClickablility(educationPage.firstDeleteButton, 20).click();
     }
 
-    @Given("User clicks related box and put information about University, Degree, Department,Start Year and End Year")
-    public void user_clicks_related_box_and_put_information_about_university_degree_department_start_year_and_end_year() {
-
+    @Then("user should be able to save their education details with valid inputs")
+    public void userShouldBeAbleToSaveTheirEducationDetaisWithValidInputs() {
+        Log.info("User goes to Dashboard page and clicks Profile then inputs new Education Info.");
+        clickWithJS(educationPage.universitiesButton);
+        List<WebElement> allUniversity;
+        allUniversity= educationPage.universitiesListBox;
+        allUniversity.get(5).click();
+        educationPage.degreeButton.click();
+        Random random = new Random();
+        int randomNumber = random.nextInt(educationPage.dropdownOptionsList.size());
+        waitForVisibility(educationPage.dropdownOptionsList.get(randomNumber), 10);
+        educationPage.dropdownOptionsList.get(randomNumber).click();
+        educationPage.departmentButton.click();
+        randomNumber = random.nextInt(educationPage.dropdownOptionsList.size());
+        educationPage.dropdownOptionsList.get(randomNumber).click();
+        educationPage.startYearButton.click();
+        waitFor(1);
+        randomNumber = random.nextInt(educationPage.dropdownOptionsList.size());
+        waitForClickablility(educationPage.dropdownOptionsList.get(randomNumber),10);
+        educationPage.dropdownOptionsList.get(randomNumber).click();
+        educationPage.endYearButton.click();
+        waitFor(1);
+        randomNumber = random.nextInt(educationPage.dropdownOptionsList.size());
+        waitForClickablility(educationPage.dropdownOptionsList.get(randomNumber),10);
+        educationPage.dropdownOptionsList.get(randomNumber).click();
+        waitForVisibility(educationPage.addEdcationButton,3).click();
+        waitForVisibility(educationPage.secondDeleteButton,5).click();
+        educationPage.sendInputText.sendKeys("Test");
+        educationPage.aDDbutton.click();
+        clickWithJS(educationPage.clickX);
+        educationPage.educationSaveButton.click();
+        Assert.assertTrue(educationPage.educationSavedSuccessfullyPopup.isDisplayed());
+        educationPage.closeTheEducationPartButton.click();
     }
-
-    @Given("User click plus ADD education button to add extra other education information")
-    public void user_click_plus_add_education_button_to_add_extra_other_education_information() {
-
-    }
-
-    @Given("user clicks Certificate box and add his her certificates")
-    public void user_clicks_certificate_box_and_add_his_her_certificates() {
-
-
-    }
-    @When("user clicks save button")
-    public void user_clicks_save_button() {
-
-    }
-
-    @Then("user should see \"Your education info has been added successfully")
-    public void user_should_see_your_education_info_has_been_added_successfully() {
-
-    }
-
-
 }

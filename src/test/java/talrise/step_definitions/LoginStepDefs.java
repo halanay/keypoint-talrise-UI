@@ -33,7 +33,7 @@ public class LoginStepDefs extends CommonSteps {
         loginPage.emailTextbox.sendKeys(ConfigurationReader.get("email"));
         loginPage.passwordTextbox.sendKeys(ConfigurationReader.get("password"));
 
-            loginPage.loginButton.click();
+        loginPage.loginButton.click();
 
 
     }
@@ -43,5 +43,18 @@ public class LoginStepDefs extends CommonSteps {
     public void userShouldBeLoggedInAsCandidate() {
 
         loginPage.candidateLogin();
+    }
+
+    @Given("the user provides valid credentials into textbox images")
+    public void the_user_provides_valid_credentials_into_textbox_images() {
+        clickOnImage("emailTextboxBeforeClick");
+        sendKeysOnImage("emailTextboxAfterClick",ConfigurationReader.get("email"));
+        clickOnImage("passwordTextboxBeforeClick");
+        sendKeysOnImage("passwordTextboxAfterClick", ConfigurationReader.get("password"));
+
+    }
+    @When("the user clicks on login button image")
+    public void the_user_clicks_on_login_button_image() {
+        clickOnImage("loginButton");
     }
 }

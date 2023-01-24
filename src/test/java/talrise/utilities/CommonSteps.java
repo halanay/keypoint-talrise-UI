@@ -1,10 +1,14 @@
 package talrise.utilities;
 
+import jdk.jfr.Timespan;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 import talrise.pages.PageInitializer;
 
 import java.io.File;
@@ -12,6 +16,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +34,7 @@ public class CommonSteps extends PageInitializer {
         element.clear();
         element.sendKeys(text);
     }
+
 
     /**
      * takes screenshot
@@ -162,22 +168,22 @@ public class CommonSteps extends PageInitializer {
      * Waits for provided element to be clickable
      *
      * @param element
-     * @param timeout
+     * @param timeoutInSeconds
      * @return
      */
-    public static WebElement waitForClickablility(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
+    public static WebElement waitForClickablility(WebElement element, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
     /**
      * Waits for element matching the locator to be clickable
      *
      * @param locator
-     * @param timeout
+     * @param timeoutInSeconds
      * @return
      */
-    public static WebElement waitForClickability(WebElement locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
+    public static WebElement waitForClickability(WebElement locator, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
@@ -661,6 +667,32 @@ public class CommonSteps extends PageInitializer {
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,document.body.scrollHeight)");
 
 
+    }
+
+    public static void clickOnImage(String imageName){
+        String userDir = System.getProperty("user.dir");
+        String imageAddress = userDir+"\\src\\test\\resources\\sikuliImages\\"+imageName+".png";
+        Screen screen = new Screen();
+        Pattern pattern = new Pattern(imageAddress);
+        try {
+            screen.wait(pattern,5000);
+            screen.click(pattern);
+        } catch (FindFailed e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void sendKeysOnImage(String imageName, String text) {
+        String userDir = System.getProperty("user.dir");
+        String imageAddress = userDir+"\\src\\test\\resources\\sikuliImages\\"+imageName+".png";
+        Screen screen = new Screen();
+        Pattern pattern = new Pattern(imageAddress);
+        try {
+            screen.wait(pattern,5000);
+            screen.type(text);
+        } catch (FindFailed e) {
+            e.printStackTrace();
+        }
     }
 
 }

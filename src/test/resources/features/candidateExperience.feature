@@ -1,7 +1,9 @@
+@regression
 Feature: US_1_UI
   @best
   @smoke
   @experience
+  @mehmet
   Scenario: Experience (Happy path)
     * US2 Candidate user fills the email and password and clicks login button
     * US2 Candidate user verifies the success message
