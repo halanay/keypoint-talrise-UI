@@ -21,7 +21,6 @@ public class CandidatePersonalInfo_StepDefs extends CommonSteps {
 
     @Given("US2 Candidate clicks the complete now button")
     public void us2_candidate_clicks_the_complete_now_button() {
-      //clickWithTimeOut(loginPage.completeNowButton,1);
         clickWithTimeOut(profilePage.personalInfoProfileButton,1);
         waitFor(2);
     }
@@ -36,9 +35,18 @@ public class CandidatePersonalInfo_StepDefs extends CommonSteps {
     public void us2_candidate_user_clicks_the_personal_information_button() {
         waitFor(1);
      clickWithJS(profilePage.personalInformationButton);
+     waitFor(1);
+     Assert.assertTrue(profilePage.personalInformationTitle.isDisplayed());
     }
     @Given("US2 Candidate user fills the Country City Country_Code Mobile")
     public void us2_candidate_user_fills_the_country_city_country_code_mobile() {
+      scrollToElement(profilePage.personalInformationTitle);
+      click(profilePage.firstNameBox);
+      waitFor(1);
+      click(profilePage.lastNameBox);
+      waitFor(1);
+      click(profilePage.linkedNameBox);
+      waitFor(1);
       click(profilePage.countryBox);
       waitFor(1);
       click(profilePage.England);
