@@ -2,6 +2,7 @@ package talrise.step_definitions;
 
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import talrise.utilities.CommonSteps;
 
@@ -68,6 +69,15 @@ public class Activity_StepDefs extends CommonSteps {
     @Given("US5 User verifies number of records displayed")
     public void us5_user_verifies_number_of_records_displayed() {
     Assert.assertTrue(activityPage.searchResultForAppliedJobs.isDisplayed());
+
+        List<WebElement> elements = driver.findElements(By.xpath("//tbody//tr"));
+        if(elements.size()==5){
+            System.out.println("passed");
+        }
+        }
+
     }
 
-}
+
+
+

@@ -26,7 +26,7 @@ public class CandidateIndustryStepDefs extends CommonSteps {
 
     @Given("US3 When the candidate user types any industry on search box verifies that it appears in dropdown")
     public void us3_when_the_candidate_user_types_any_industry_on_search_box_verifies_that_it_appears_in_dropdown() {
-      scrollToElement(driver.findElement(By.xpath("//span[normalize-space()='Suggested fields']")));
+      scrollToElement(profilePage.industryTitle);
       sendText(profilePage.industrySearchBox,"Ed");
       waitFor(1);
       Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Education']")).isDisplayed());
@@ -36,20 +36,15 @@ public class CandidateIndustryStepDefs extends CommonSteps {
 
     @Given("US3 When candidate clicks on an industry from dropdown verifies that it is selected")
     public void us3_when_candidate_clicks_on_an_industry_from_dropdown_verifies_that_it_is_selected() {
-//        List<WebElement> suggestedFieldList = driver.findElements(By.xpath("//div[@class='sc-cxdZMj dRdSch']//div[@class='sc-iveFHk ftbcFb']//.."));
-//        for(WebElement each:suggestedFieldList){
-//            if(each.getText().equals("Education")){
-//                each.click();
-//                break;
-//            }
-//        }
-        driver.findElement(By.xpath("//button[normalize-space()='Education']")).click();
-        waitFor(3);
+        click(profilePage.industrySuggestedFieldEducationTitle);
+        waitFor(1);
         Assert.assertTrue(profilePage.industrySelectedItem.isDisplayed());
     }
 
     @Given("US3 User chooses first option from the experience dropdown")
     public void us3_user_chooses_first_option_from_the_experience_dropdown() {
+        click(profilePage.industryExperienceYearBox);
+        waitFor(1);
         List<WebElement>experienceList=profilePage.industryExperienceDropDownList;
 
         for(WebElement each:experienceList){
@@ -58,10 +53,7 @@ public class CandidateIndustryStepDefs extends CommonSteps {
                 break;
             }
         }
-
-
     }
-
 
     @Given("US3 User closes industries which are selected")
     public void us3_user_closes_industries_which_are_selected() {
@@ -79,6 +71,5 @@ public class CandidateIndustryStepDefs extends CommonSteps {
      waitFor(1);
      Assert.assertTrue(profilePage.industrySuccessMessage.isDisplayed());
     }
-
 
 }

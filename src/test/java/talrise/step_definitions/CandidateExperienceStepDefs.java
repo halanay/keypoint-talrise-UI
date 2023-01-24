@@ -13,7 +13,7 @@ public class CandidateExperienceStepDefs extends CommonSteps {
     public void us1_candidate_user_clicks_on_experience_title() {
       clickWithTimeOut(profilePage.personalInfoProfileButton,1);
       waitFor(2);
-      clickWithTimeOut(profilePage.experienceButton,3);
+      clickWithTimeOut(profilePage.experienceButton,2);
      scrollToElement(profilePage.experienceContractTypeBox);
       waitFor(1);
     }
@@ -23,9 +23,9 @@ public class CandidateExperienceStepDefs extends CommonSteps {
     }
     @Given("US1 Candidate user fills the Title Company boxes")
     public void us1_candidate_user_fills_the_title_company_boxes() {
-      profilePage.experienceTitleBox.clear();
+      profilePage.experienceTitleBox.click();
       sendText(profilePage.experienceTitleBox,"Tester");
-      profilePage.experienceCompanyBox.clear();
+      profilePage.experienceCompanyBox.click();
       sendText(profilePage.experienceCompanyBox,"Talrise");
     }
     @Given("US1 Candidate user chooses Contract Type Workplace Start Date")
@@ -49,7 +49,7 @@ public class CandidateExperienceStepDefs extends CommonSteps {
              break;
          }
      }
-    //
+
     }
 
     @Given("US1 Candidate user clicks on I am currently working box")
@@ -59,6 +59,8 @@ public class CandidateExperienceStepDefs extends CommonSteps {
 
     @Given("US1 Candidates chooses notice period from the dropdown")
     public void us1_candidates_chooses_notice_period_from_the_dropdown() {
+     scrollToElement(profilePage.experienceStartDateBoxDropdown);
+     click(profilePage.experienceStartDateBoxDropdown);
      clickWithTimeOut(profilePage.experienceNoticePeriodBox,1);
      waitFor(1);
         List<WebElement> noticePeriods = driver.findElements(By.xpath("//ul//li"));
